@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class BankAccountTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Declare the scanner 
+		Scanner input =  new Scanner(System.in);
 
 	}
 

@@ -9,7 +9,7 @@ package bankAccountProject;
 public class BankAccount {
 // Data Fields
 	private String bankName = "";
-	private int accountNumber = 000001;
+	private int routingNumber = 000001;
 	private double totalValue = 0;
 	private String fileLocation = "";
 	
@@ -31,9 +31,9 @@ public class BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public BankAccount(String bankName, int accountNumber, double totalValue) {
+	public BankAccount(String bankName, int routingNumber, double totalValue) {
 		this.bankName = bankName;
-		this.accountNumber = accountNumber;
+		this.routingNumber = routingNumber;
 		this.totalValue = totalValue;
 	}
 	
@@ -54,8 +54,8 @@ public class BankAccount {
 	 * @param void
 	 * @return int
 	 */
-	public int getAccountNumber() {
-		return accountNumber;
+	public int getRoutingNumber() {
+		return routingNumber;
 	}
 	
 	/**	
@@ -95,7 +95,7 @@ public class BankAccount {
 	 * @return void
 	 */
 	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
+		this.routingNumber = accountNumber;
 	}
 	
 	/**	

@@ -8,7 +8,7 @@ package bankAccountProject;
 
 public class CheckingAccount extends BankAccount {
 // Data Fields
-	private int routingNumber = 00001;
+	private int accountNumber = 00001;
 	private double interestRate = .01;
 	private double value = 0;
 	
@@ -31,8 +31,8 @@ public class CheckingAccount extends BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public CheckingAccount(int routingNumber, double interestRate, double value) {
-		this.routingNumber = routingNumber;
+	public CheckingAccount(int accountNumber, double interestRate, double value) {
+		this.accountNumber = accountNumber;
 		this.interestRate = interestRate;
 		this.value = value;
 	}
@@ -48,9 +48,9 @@ public class CheckingAccount extends BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public CheckingAccount(String bankName, int accountNumber, double totalValue, int routingNumber, double interestRate, double value) {
+	public CheckingAccount(String bankName, int routingNumber, double totalValue, int accountNumber, double interestRate, double value) {
 		super();
-		this.routingNumber = routingNumber;
+		this.accountNumber = accountNumber;
 		this.interestRate = interestRate;
 		this.value = value;
 	}
@@ -61,8 +61,8 @@ public class CheckingAccount extends BankAccount {
 	 * @param void
 	 * @return routingNumber
 	 */
-	public int getRoutingNumber() {
-		return routingNumber;
+	public int getAccountNumber() {
+		return accountNumber;
 	}
 	
 	/**	
@@ -91,8 +91,8 @@ public class CheckingAccount extends BankAccount {
 	 * @param int
 	 * @return void
 	 */
-	public void setRoutingNumber(int routingNumber) {
-		this.routingNumber = routingNumber;
+	public void setRoutingNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 	
 	/**	
