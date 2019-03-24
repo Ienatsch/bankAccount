@@ -55,10 +55,10 @@ public class SavingsAccount extends BankAccount {
 	}
 // Methods
 	/**	
-	 * The getRoutingNumber method
-	 * Purpose: gets the routingNumber
+	 * The getAccountNumber method
+	 * Purpose: gets the accountNumber
 	 * @param void
-	 * @return routingNumber
+	 * @return accountNumber
 	 */
 	public int getAccountNumber() {
 		return accountNumber;
@@ -85,8 +85,8 @@ public class SavingsAccount extends BankAccount {
 	}
 	
 	/**	
-	 * The setRoutingNumber method
-	 * Purpose: sets the routingNumber
+	 * The setAccountNumber method
+	 * Purpose: sets the accountNumber
 	 * @param int
 	 * @return void
 	 */
@@ -142,6 +142,16 @@ public class SavingsAccount extends BankAccount {
 	 */
 	public void writeToFile(String fileLocation) {
 		
+	}
+	
+	/**	
+	 * The toString method
+	 * Purpose: displays the account information correctly
+	 * @param void
+	 * @return void
+	 */
+	public String toString() {
+		return "";
 	}
 
 }

@@ -49,8 +49,8 @@ public class BankAccount {
 	}
 	
 	/**	
-	 * The getAccountNumber method
-	 * Purpose: returns the accountNumber to the user
+	 * The getRoutingNumber method
+	 * Purpose: returns the routingNumber to the user
 	 * @param void
 	 * @return int
 	 */
@@ -59,7 +59,7 @@ public class BankAccount {
 	}
 	
 	/**	
-	 * The getAccountNumber method
+	 * The getTotalValue method
 	 * Purpose: returns the totalValue to the user
 	 * @param void
 	 * @return double
@@ -104,8 +104,8 @@ public class BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public void setTotalValue(double value) {
-		this.totalValue = value;
+	public void setTotalValue(double totalValue) {
+		this.totalValue = totalValue;
 	}
 	
 	/**	
@@ -125,7 +125,7 @@ public class BankAccount {
 	 * @param BankAccount - to account
 	 * @return void
 	 */
-	public void transferMoney() {
+	public void transferMoney(BankAccount fromAccount, BankAccount toAccount) {
 		
 	}
 	/**	
@@ -135,7 +135,7 @@ public class BankAccount {
 	 * @param double - how much is going in the account
 	 * @return void
 	 */
-	public void deposit() {
+	public void deposit(BankAccount account1, double deposit) {
 		
 	}
 	
