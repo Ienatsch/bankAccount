@@ -135,7 +135,7 @@ public class BankAccount {
 	 * @param double - how much is going in the account
 	 * @return void
 	 */
-	public void deposit(BankAccount account1, double deposit) {
+	public void deposit(BankAccount accountNumber, double deposit) {
 		
 	}
 	
