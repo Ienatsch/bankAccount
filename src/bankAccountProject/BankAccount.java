@@ -8,9 +8,9 @@ package bankAccountProject;
 
 public class BankAccount {
 // Data Fields
-	private String bankName = "";
-	private int routingNumber = 000001;
-	private double totalValue = 0;
+	private String accountName = "default";
+	private int routingNumber = 123456;
+	private double value = 0;
 	private String fileLocation = "";
 	
 // Constructors
@@ -31,10 +31,10 @@ public class BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public BankAccount(String bankName, int routingNumber, double totalValue) {
-		this.bankName = bankName;
+	public BankAccount(String accountName, int routingNumber, double value) {
+		this.accountName = accountName;
 		this.routingNumber = routingNumber;
-		this.totalValue = totalValue;
+		this.value = value;
 	}
 	
 // Methods
@@ -45,7 +45,7 @@ public class BankAccount {
 	 * @return String
 	 */
 	public String getBankName() {
-		return bankName;
+		return accountName;
 	}
 	
 	/**	
@@ -59,13 +59,13 @@ public class BankAccount {
 	}
 	
 	/**	
-	 * The getTotalValue method
-	 * Purpose: returns the totalValue to the user
+	 * The get value method
+	 * Purpose: returns the value to the user
 	 * @param void
 	 * @return double
 	 */
-	public double getTotalValue() {
-		return totalValue;
+	public double value() {
+		return value;
 	}
 	
 	/**	
@@ -80,12 +80,12 @@ public class BankAccount {
 	
 	/**	
 	 * The setBankName method
-	 * Purpose: sets the bankName
+	 * Purpose: sets the accountName
 	 * @param String
 	 * @return void
 	 */
-	public void setBankName(String bankName) {
-		this.bankName = bankName;
+	public void setBankName(String accountName) {
+		this.accountName = accountName;
 	}
 	
 	/**	
@@ -99,13 +99,13 @@ public class BankAccount {
 	}
 	
 	/**	
-	 * The setTotalValue method
-	 * Purpose: sets the totalValue
+	 * The set value method
+	 * Purpose: sets the value
 	 * @param double
 	 * @return void
 	 */
-	public void setTotalValue(double totalValue) {
-		this.totalValue = totalValue;
+	public void value(double value) {
+		this.value = value;
 	}
 	
 	/**	
@@ -119,24 +119,14 @@ public class BankAccount {
 	}
 	
 	/**	
-	 * The transferMoney method
-	 * Purpose: transfers money from one account to another
-	 * @param BankAccount - from account
-	 * @param BankAccount - to account
-	 * @return void
-	 */
-	public void transferMoney(BankAccount fromAccount, BankAccount toAccount) {
-		
-	}
-	/**	
 	 * The deposit method
-	 * Purpose: adds money to totalValue
+	 * Purpose: adds money to value
 	 * @param BankAccount - where the money is going
 	 * @param double - how much is going in the account
 	 * @return void
 	 */
-	public void deposit(BankAccount accountNumber, double deposit) {
-		
+	public void deposit(BankAccount account, double deposit) {
+		account.value += deposit;
 	}
 	
 	/**	
@@ -146,8 +136,8 @@ public class BankAccount {
 	 * @param double - how much is being withdrawn
 	 * @return void
 	 */
-	public void withdraw() {
-		
+	public void withdraw(BankAccount account, double withdraw) {
+		account.value -= withdraw;
 	}
 	
 	/**	
@@ -159,6 +149,7 @@ public class BankAccount {
 	public void writeToFile() {
 		
 	}
+	
 	/**	
 	 * The writeToFile method
 	 * Purpose: writes the account information to a specified file

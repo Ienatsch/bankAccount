@@ -24,10 +24,17 @@ public class BankAccountTest {
 		// Create two SavingsAccount objects and store references to them in the ArrayList
         BankAccount savings1 = new SavingsAccount();
         BankAccount savings2 = new SavingsAccount();
-
         bankAccounts.add(savings1);
         bankAccounts.add(savings2);
+        
         // Ask the user for the day of their deposit
+        // Or should we just get the current date one the program starts and parse through that?
+        
+        // Display a summary of the accounts so that the user can access them
+        System.out.println("-- Account Name ---- Account Number ---- Value ");
+        System.out.println("   " + myChecking.getBankName() + "           " + myChecking.getRoutingNumber() + "              " + myChecking.value() + " ");
+        System.out.println("   " + savings1.getBankName() + "           " + savings1.getRoutingNumber() + "              " + savings1.value() + " ");
+        System.out.println("   " + savings2.getBankName() + "           " + savings2.getRoutingNumber() + "              " + savings2.value() + " ");
         
         int selection = 0;
 		do {
@@ -46,22 +53,40 @@ public class BankAccountTest {
                     double deposit = input.nextDouble();
                     
                     // add the deposit amount to the value
-                   
+                    if (accountNumber == 123456) {
+                    	myChecking.deposit(myChecking, deposit);
+                    	// Test output
+                    	System.out.println(myChecking.value());
+                    } else if (accountNumber == 234567) {
+                    	savings1.deposit(savings1, deposit);
+     
+                    } else if (accountNumber == 245678) {
+                    	savings2.deposit(savings2, deposit);
+                    } else
+                    	System.out.println("You did not enter a valid account number. Please try again.");
                     break;
+                    
                 case 2: // Withdraw money out of an account
-                    // ask the user to enter the account number and deposit amount
+                    // ask the user to enter the account number and withdraw amount
                 	System.out.println("Please enter the account number (123456) and withdraw amount (350.00)");
                 	accountNumber = input.nextInt();
                     double withdraw = input.nextDouble();
                     
                     // subtract the withdraw amount from the value
-                	
+                    if (accountNumber == 123456) {
+                    	myChecking.withdraw(myChecking, withdraw);
+                    	// Test output
+                    	System.out.println(myChecking.value());
+                    } else if (accountNumber == 234567) {
+                    	savings1.withdraw(savings1, withdraw);
+                    } else if (accountNumber == 245678) {
+                    	savings2.withdraw(savings2, withdraw);
+                    } else
+                    	System.out.println("You did not enter a valid account number. Please try again.");
                     break;
-                default:
-                	break;
             }
             
-        } while (selection < 2);
+        } while (selection < 3);
 
 			
 		// Create a file on disk and for each account in the list write out
