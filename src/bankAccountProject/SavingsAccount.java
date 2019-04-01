@@ -121,27 +121,7 @@ public class SavingsAccount extends BankAccount {
 	 * @return double
 	 */
 	public double calculateInterest() {
-		return value * interestRate;
-	}
-	
-	/**	
-	 * The writeToFile method
-	 * Purpose: writes the account information to a file
-	 * @param void
-	 * @return void
-	 */
-	public void writeToFile() {
-		
-	}
-	
-	/**	
-	 * The writeToFile method
-	 * Purpose: writes the account information to a specified file
-	 * @param void
-	 * @return void
-	 */
-	public void writeToFile(String fileLocation) {
-		
+		return value + value * interestRate;
 	}
 	
 	/**	
