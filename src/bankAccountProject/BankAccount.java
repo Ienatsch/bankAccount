@@ -10,7 +10,7 @@ public class BankAccount {
 // Data Fields
 	private String accountName = "default";
 	private int routingNumber = 123456;
-	private double value = 0;
+	protected double value = 0;
 	
 // Constructors
 	/**	
@@ -58,12 +58,12 @@ public class BankAccount {
 	}
 	
 	/**	
-	 * The get value method
+	 * The getValue method
 	 * Purpose: returns the value to the user
 	 * @param void
 	 * @return double
 	 */
-	public double value() {
+	public double getValue() {
 		return value;
 	}
 	
@@ -117,6 +117,10 @@ public class BankAccount {
 	 */
 	public void withdraw(BankAccount account, double withdraw) {
 		account.value -= withdraw;
+	}
+	
+	public double calcValue(BankAccount account1, BankAccount account2, BankAccount account3) {
+		return account1.getValue() + account2.getValue() + account3.getValue();
 	}
 	
 	/**	

@@ -10,7 +10,6 @@ public class SavingsAccount extends BankAccount {
 // Data Fields
 	private int accountNumber = 00001;
 	private double interestRate = .01;
-	private double value = 0;
 	
 // Constructors
 	/**	

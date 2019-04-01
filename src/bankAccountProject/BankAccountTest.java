@@ -32,9 +32,9 @@ public class BankAccountTest {
         
         // Display a summary of the accounts so that the user can access them
         System.out.println("-- Account Name ---- Account Number ---- Value ");
-        System.out.println("   " + myChecking.getBankName() + "           " + myChecking.getRoutingNumber() + "              " + myChecking.value() + " ");
-        System.out.println("   " + savings1.getBankName() + "           " + savings1.getRoutingNumber() + "              " + savings1.value() + " ");
-        System.out.println("   " + savings2.getBankName() + "           " + savings2.getRoutingNumber() + "              " + savings2.value() + " ");
+        System.out.println("   " + myChecking.getBankName() + "           " + myChecking.getRoutingNumber() + "              " + myChecking.getValue() + " ");
+        System.out.println("   " + savings1.getBankName() + "           " + savings1.getRoutingNumber() + "              " + savings1.getValue() + " ");
+        System.out.println("   " + savings2.getBankName() + "           " + savings2.getRoutingNumber() + "              " + savings2.getValue() + " ");
         
         int selection = 0;
 		do {
@@ -56,7 +56,7 @@ public class BankAccountTest {
                     if (accountNumber == 123456) {
                     	myChecking.deposit(myChecking, deposit);
                     	// Test output
-                    	System.out.println(myChecking.value());
+                    	System.out.println(myChecking.getValue());
                     } else if (accountNumber == 234567) {
                     	savings1.deposit(savings1, deposit);
      
@@ -76,7 +76,7 @@ public class BankAccountTest {
                     if (accountNumber == 123456) {
                     	myChecking.withdraw(myChecking, withdraw);
                     	// Test output
-                    	System.out.println(myChecking.value());
+                    	System.out.println(myChecking.getValue());
                     } else if (accountNumber == 234567) {
                     	savings1.withdraw(savings1, withdraw);
                     } else if (accountNumber == 245678) {

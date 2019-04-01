@@ -9,8 +9,7 @@ package bankAccountProject;
 public class CheckingAccount extends BankAccount {
 // Data Fields
 	private int accountNumber = 00001;
-	private double value = 0;
-	
+
 // Constructors
 	/**	
 	 * The CheckingAcoount default constructor method
