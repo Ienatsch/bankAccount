@@ -141,46 +141,6 @@ public class BankAccount {
 	}
 	
 	/**	
-	 * The writeToFile method
-	 * Purpose: writes the account information to a file
-	 * @param void
-	 * @return void
-	 */
-	public void writeToFile() {
-		
-	}
-	
-	/**	
-	 * The writeToFile method
-	 * Purpose: writes the account information to a specified file
-	 * @param void
-	 * @return void
-	 */
-	public void writeToFile(String fileLocation) {
-		
-	}
-	
-	/**	
-	 * The readFromFile method
-	 * Purpose: reads the account information from a file
-	 * @param void
-	 * @return void
-	 */
-	public void readFromFile() {
-		
-	}
-	
-	/**	
-	 * The readFromFile method
-	 * Purpose: reads the account information from a specified file
-	 * @param void
-	 * @return void
-	 */
-	public void readFromFile(String fileLocation) {
-		
-	}
-	
-	/**	
 	 * The toString method
 	 * Purpose: displays the account information correctly
 	 * @param void
