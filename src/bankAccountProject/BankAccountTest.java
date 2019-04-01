@@ -1,5 +1,5 @@
 /** File Prologue
- * Name: Jacob Maughan & Dolan Lenatsch
+ * Name: Jacob Maughan & Dalan Ienatsch
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
@@ -18,23 +18,28 @@ public class BankAccountTest {
         ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
         
 		// Create one CheckingAccount object and store the reference to it in the ArrayList
-        BankAccount myChecking = new BankAccount();
+        CheckingAccount myChecking = new CheckingAccount(123456, 125.00);
         bankAccounts.add(myChecking);
         
 		// Create two SavingsAccount objects and store references to them in the ArrayList
-        BankAccount savings1 = new SavingsAccount();
-        BankAccount savings2 = new SavingsAccount();
+        SavingsAccount savings1 = new SavingsAccount(234567, 300.00);
+        SavingsAccount savings2 = new SavingsAccount(245678, 150.00);
         bankAccounts.add(savings1);
         bankAccounts.add(savings2);
         
         // Ask the user for the day of their deposit
-        // Or should we just get the current date one the program starts and parse through that?
+        System.out.println("What is today's date? (MM/DD/YYYY)");
+        String todaysDate = input.next();
+        String[] splitDate = todaysDate.split("");
+        String month = splitDate[0]+splitDate[1];
+        String year = splitDate[6] + splitDate[7] + splitDate[8] + splitDate[9];
+        
         
         // Display a summary of the accounts so that the user can access them
         System.out.println("-- Account Name ---- Account Number ---- Value ");
-        System.out.println("   " + myChecking.getBankName() + "           " + myChecking.getRoutingNumber() + "              " + myChecking.getValue() + " ");
-        System.out.println("   " + savings1.getBankName() + "           " + savings1.getRoutingNumber() + "              " + savings1.getValue() + " ");
-        System.out.println("   " + savings2.getBankName() + "           " + savings2.getRoutingNumber() + "              " + savings2.getValue() + " ");
+        System.out.println("   " + myChecking.getBankName() + "           " + myChecking.getAccountNumber() + "              " + myChecking.getValue() + " ");
+        System.out.println("   " + savings1.getBankName() + "           " + savings1.getAccountNumber() + "              " + savings1.getValue() + " ");
+        System.out.println("   " + savings2.getBankName() + "           " + savings2.getAccountNumber() + "              " + savings2.getValue() + " ");
         
         int selection = 0;
 		do {
@@ -54,14 +59,12 @@ public class BankAccountTest {
                     
                     // add the deposit amount to the value
                     if (accountNumber == 123456) {
-                    	myChecking.deposit(myChecking, deposit);
-                    	// Test output
-                    	System.out.println(myChecking.getValue());
+                    	myChecking.deposit(deposit);
                     } else if (accountNumber == 234567) {
-                    	savings1.deposit(savings1, deposit);
+                    	savings1.deposit(deposit);
      
                     } else if (accountNumber == 245678) {
-                    	savings2.deposit(savings2, deposit);
+                    	savings2.deposit(deposit);
                     } else
                     	System.out.println("You did not enter a valid account number. Please try again.");
                     break;
@@ -75,8 +78,6 @@ public class BankAccountTest {
                     // subtract the withdraw amount from the value
                     if (accountNumber == 123456) {
                     	myChecking.withdraw(myChecking, withdraw);
-                    	// Test output
-                    	System.out.println(myChecking.getValue());
                     } else if (accountNumber == 234567) {
                     	savings1.withdraw(savings1, withdraw);
                     } else if (accountNumber == 245678) {

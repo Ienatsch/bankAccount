@@ -1,5 +1,5 @@
 /** File Prologue
- * Name: Jacob Maughan & Dolan Lenatsch
+ * Name: Jacob Maughan & Dalan Ienatsch
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
@@ -9,7 +9,7 @@ package bankAccountProject;
 public class SavingsAccount extends BankAccount {
 // Data Fields
 	private int accountNumber = 00001;
-	private double interestRate = .01;
+	private double interestRate = .02;
 	
 // Constructors
 	/**	
@@ -30,29 +30,12 @@ public class SavingsAccount extends BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public SavingsAccount(int accountNumber, double interestRate, double value) {
+	public SavingsAccount(int accountNumber, double value) {
 		this.accountNumber = accountNumber;
 		this.interestRate = interestRate;
 		this.value = value;
 	}
 	
-	/**	
-	 * The SavingsAcoount constructor method
-	 * Purpose: Creates a SavingsAccount object that with specified data fields
-	 * @param String
-	 * @param int
-	 * @param double
-	 * @param int
-	 * @param double 
-	 * @param double
-	 * @return void
-	 */
-	public SavingsAccount(String bankName, int routingNumber, double totalValue, int accountNumber, double interestRate, double value) {
-		super();
-		this.accountNumber = accountNumber;
-		this.interestRate = interestRate;
-		this.value = value;
-	}
 // Methods
 	/**	
 	 * The getAccountNumber method
@@ -122,16 +105,6 @@ public class SavingsAccount extends BankAccount {
 	 */
 	public double calculateInterest() {
 		return value + value * interestRate;
-	}
-	
-	/**	
-	 * The toString method
-	 * Purpose: displays the account information correctly
-	 * @param void
-	 * @return void
-	 */
-	public String toString() {
-		return "";
 	}
 
 }

@@ -1,5 +1,5 @@
 /** File Prologue
- * Name: Jacob Maughan & Dolan Lenatsch
+ * Name: Jacob Maughan & Dalan Ienatsch
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
@@ -104,8 +104,8 @@ public class BankAccount {
 	 * @param double - how much is going in the account
 	 * @return void
 	 */
-	public void deposit(BankAccount account, double deposit) {
-		account.value += deposit;
+	public void deposit(double deposit) {
+		this.value += deposit;
 	}
 	
 	/**	
@@ -123,13 +123,4 @@ public class BankAccount {
 		return account1.getValue() + account2.getValue() + account3.getValue();
 	}
 	
-	/**	
-	 * The toString method
-	 * Purpose: displays the account information correctly
-	 * @param void
-	 * @return void
-	 */
-	public String toString() {
-		return "";
-	}
 }

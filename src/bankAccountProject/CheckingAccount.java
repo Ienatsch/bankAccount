@@ -1,5 +1,5 @@
 /** File Prologue
- * Name: Jacob Maughan & Dolan Lenatsch
+ * Name: Jacob Maughan & Dalan Ienatsch
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
@@ -29,7 +29,7 @@ public class CheckingAccount extends BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public CheckingAccount(int accountNumber, double interestRate, double value) {
+	public CheckingAccount(int accountNumber, double value) {
 		this.accountNumber = accountNumber;
 		this.value = value;
 	}
@@ -89,16 +89,6 @@ public class CheckingAccount extends BankAccount {
 	 */
 	public void setValue(double value) {
 		this.value = value;
-	}
-	
-	/**	
-	 * The toString method
-	 * Purpose: displays the account information correctly
-	 * @param void
-	 * @return void
-	 */
-	public String toString() {
-		return "";
 	}
 
 }
