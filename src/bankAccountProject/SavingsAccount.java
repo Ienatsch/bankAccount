@@ -11,6 +11,7 @@ public class SavingsAccount extends BankAccount {
 	private int accountNumber = 00001;
 	private double interestRate = .01;
 	private double value = 0;
+	
 // Constructors
 	/**	
 	 * The SavingsAcoount default constructor method

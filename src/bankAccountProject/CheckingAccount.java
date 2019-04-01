@@ -9,7 +9,6 @@ package bankAccountProject;
 public class CheckingAccount extends BankAccount {
 // Data Fields
 	private int accountNumber = 00001;
-	private double interestRate = .01;
 	private double value = 0;
 	
 // Constructors
@@ -33,7 +32,6 @@ public class CheckingAccount extends BankAccount {
 	 */
 	public CheckingAccount(int accountNumber, double interestRate, double value) {
 		this.accountNumber = accountNumber;
-		this.interestRate = interestRate;
 		this.value = value;
 	}
 	
@@ -48,10 +46,9 @@ public class CheckingAccount extends BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public CheckingAccount(String bankName, int routingNumber, double totalValue, int accountNumber, double interestRate, double value) {
+	public CheckingAccount(String accountName, int routingNumber, double value, int accountNumber) {
 		super();
 		this.accountNumber = accountNumber;
-		this.interestRate = interestRate;
 		this.value = value;
 	}
 // Methods
@@ -65,16 +62,6 @@ public class CheckingAccount extends BankAccount {
 		return accountNumber;
 	}
 	
-	/**	
-	 * The getInterestRate method
-	 * Purpose: gets the interestRate
-	 * @param void
-	 * @return interestRate
-	 */
-	public double getInterestRate() {
-		return interestRate;
-	}
-
 	/**	
 	 * The getValue method
 	 * Purpose: gets the value
@@ -93,16 +80,6 @@ public class CheckingAccount extends BankAccount {
 	 */
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
-	}
-	
-	/**	
-	 * The setInterestRate method
-	 * Purpose: sets the interestRate
-	 * @param double
-	 * @return void
-	 */
-	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate;
 	}
 	
 	/**	

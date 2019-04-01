@@ -11,7 +11,6 @@ public class BankAccount {
 	private String accountName = "default";
 	private int routingNumber = 123456;
 	private double value = 0;
-	private String fileLocation = "";
 	
 // Constructors
 	/**	
@@ -69,16 +68,6 @@ public class BankAccount {
 	}
 	
 	/**	
-	 * The getFileLocation method
-	 * Purpose: returns the fileLocation to the user
-	 * @param void
-	 * @return String
-	 */
-	public String getFileLocation() {
-		return fileLocation;
-	}
-	
-	/**	
 	 * The setBankName method
 	 * Purpose: sets the accountName
 	 * @param String
@@ -106,16 +95,6 @@ public class BankAccount {
 	 */
 	public void value(double value) {
 		this.value = value;
-	}
-	
-	/**	
-	 * The setFileLocation method
-	 * Purpose: sets the fileLocation
-	 * @param String
-	 * @return void
-	 */
-	public void setFileLocation(String fileLocation) {
-		this.fileLocation = fileLocation;
 	}
 	
 	/**	
