@@ -87,6 +87,8 @@ public class BankAccountTest {
             }
             
         } while (selection < 3);
+		
+		System.out.println("calcValue = " + myChecking.calcValue(myChecking, savings1, savings2));
 
 			
 		// Create a file on disk and for each account in the list write out
