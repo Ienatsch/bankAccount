@@ -25,21 +25,19 @@ public class BankAccountTest {
         SavingsAccount savings1 = new SavingsAccount(234567, 300.00);
         SavingsAccount savings2 = new SavingsAccount(245678, 150.00);
         bankAccounts.add(savings1);
-        bankAccounts.add(savings2);
-        
-        // Ask the user for the day of their deposit
-        System.out.println("What is today's date? (MM/DD/YYYY)");
-        String todaysDate = input.next();
-        String[] splitDate = todaysDate.split("");
-        String month = splitDate[0]+splitDate[1];
-        String year = splitDate[6] + splitDate[7] + splitDate[8] + splitDate[9];
-        
+        bankAccounts.add(savings2);       
         
         // Display a summary of the accounts so that the user can access them
         System.out.println("-- Account Name ---- Account Number ---- Value ");
-        System.out.println("   " + myChecking.getBankName() + "           " + myChecking.getAccountNumber() + "              " + myChecking.getValue() + " ");
-        System.out.println("   " + savings1.getBankName() + "           " + savings1.getAccountNumber() + "              " + savings1.getValue() + " ");
-        System.out.println("   " + savings2.getBankName() + "           " + savings2.getAccountNumber() + "              " + savings2.getValue() + " ");
+        System.out.format("   %-18s%-20s%s%n", myChecking.getBankName(), myChecking.getAccountNumber(), myChecking.getValue());
+        System.out.format("   %-18s%-20s%s%n",savings1.getBankName(), savings1.getAccountNumber(), savings1.getValue());
+        System.out.format("   %-18s%-20s%s%n", savings2.getBankName(), savings2.getAccountNumber(), savings2.getValue());
+        
+                // Ask the user for the day of their deposit
+        System.out.format("%nPlease enter today's date: (MM/DD/YYYY)");
+        String[] todaysDate = input.next().split("");
+        int todaysMonth = Integer.parseInt(todaysDate[0] + todaysDate[1]);
+        int todaysYear = Integer.parseInt(todaysDate[6] + todaysDate[7] + todaysDate[8] + todaysDate[9]);
         
         int selection = 0;
 		do {
