@@ -114,7 +114,6 @@ public class CheckingAccount extends BankAccount {
 	public void setValue(double value) {
 		this.value = value;
 	}
-
 	
 	/**	
 	 * The toString method
