@@ -52,49 +52,41 @@ public class BankAccountTest {
 			System.out.println("Press 3 to Exit");
 
 			selection = input.nextInt();
-			int accountNumber = 0;
 
 			switch (selection) {
 			case 1: // Deposit money in an account
 				// ask the user to enter the account number and deposit amount
 				System.out.println("Please enter the account number (123456) and deposit amount (350.00)");
-				accountNumber = input.nextInt();
+				final int depositAccountNumber = input.nextInt();
 				double deposit = input.nextDouble();
 
-				// add the deposit amount to the value
-				if (accountNumber == 123456) {
-					myChecking.deposit(deposit);
-				} else if (accountNumber == 234567) {
-					savings1.deposit(deposit);
-
-				} else if (accountNumber == 245678) {
-					savings2.deposit(deposit);
-				} else
-					System.out.println("You did not enter a valid account number. Please try again.");
+                                bankAccounts.forEach(x -> {
+                                    if(x.getAccountNumber() == depositAccountNumber) {
+                                        x.deposit(deposit);
+                                        x.printValue();
+                                    }
+                                });
 				break;
 
 			case 2: // Withdraw money out of an account
 				// ask the user to enter the account number and withdraw amount
 				System.out.println("Please enter the account number (123456) and withdraw amount (350.00)");
-				accountNumber = input.nextInt();
+				final int withdrawAccountNumber = input.nextInt();
 				double withdraw = input.nextDouble();
 
-				// subtract the withdraw amount from the value
-				if (accountNumber == 123456) {
-					myChecking.withdraw(withdraw);
-				} else if (accountNumber == 234567) {
-					savings1.withdraw(withdraw);
-				} else if (accountNumber == 245678) {
-					savings2.withdraw(withdraw);
-				} else
-					System.out.println("You did not enter a valid account number. Please try again.");
+                                bankAccounts.forEach(x -> {
+                                    if(x.getAccountNumber() == withdrawAccountNumber) {
+                                        x.withdraw(withdraw);
+                                        x.printValue();
+                                    }
+                                });
 				break;
 			}
 
 		} while (selection < 3);
 
 		System.out.println("calcValue = " + BankAccount.calcValue(bankAccounts));
-
+          
 		// Create a file on disk and for each account in the list write out
 		// The account name
 		// The account number
