@@ -10,21 +10,24 @@ public class SavingsAccount extends BankAccount {
 // Data Fields
 	private int accountNumber = 00001;
 	private double interestRate = .02;
-	
+	private double interestEarned = 0;
+
 // Constructors
-	/**	
-	 * The SavingsAcoount default constructor method
-	 * Purpose: Creates a SavingsAccount object that inherits the super data fields
+	/**
+	 * The SavingsAcoount default constructor method Purpose: Creates a
+	 * SavingsAccount object that inherits the super data fields
+	 * 
 	 * @param void
 	 * @return void
 	 */
 	public SavingsAccount() {
 		super();
 	}
-	
-	/**	
-	 * The SavingsAcoount constructor method
-	 * Purpose: Creates a SavingsAccount object with parameters
+
+	/**
+	 * The SavingsAcoount constructor method Purpose: Creates a SavingsAccount
+	 * object with parameters
+	 * 
 	 * @param int
 	 * @param double
 	 * @param double
@@ -32,24 +35,23 @@ public class SavingsAccount extends BankAccount {
 	 */
 	public SavingsAccount(int accountNumber, double value) {
 		this.accountNumber = accountNumber;
-		this.interestRate = interestRate;
 		this.value = value;
 	}
-	
+
 // Methods
-	/**	
-	 * The getAccountNumber method
-	 * Purpose: gets the accountNumber
+	/**
+	 * The getAccountNumber method Purpose: gets the accountNumber
+	 * 
 	 * @param void
 	 * @return accountNumber
 	 */
 	public int getAccountNumber() {
 		return accountNumber;
 	}
-	
-	/**	
-	 * The getInterestRate method
-	 * Purpose: gets the interestRate
+
+	/**
+	 * The getInterestRate method Purpose: gets the interestRate
+	 * 
 	 * @param void
 	 * @return interestRate
 	 */
@@ -57,54 +59,64 @@ public class SavingsAccount extends BankAccount {
 		return interestRate;
 	}
 
-	/**	
-	 * The getValue method
-	 * Purpose: gets the value
+	/**
+	 * The getValue method Purpose: gets the value
+	 * 
 	 * @param void
 	 * @return value
 	 */
 	public double getValue() {
 		return value;
 	}
-	
-	/**	
-	 * The setAccountNumber method
-	 * Purpose: sets the accountNumber
+
+	/**
+	 * The setAccountNumber method Purpose: sets the accountNumber
+	 * 
 	 * @param int
 	 * @return void
 	 */
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	
-	/**	
-	 * The setInterestRate method
-	 * Purpose: sets the interestRate
+
+	/**
+	 * The setInterestRate method Purpose: sets the interestRate
+	 * 
 	 * @param double
 	 * @return void
 	 */
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
-	
-	/**	
-	 * The setValue method
-	 * Purpose: sets the value
+
+	/**
+	 * The setValue method Purpose: sets the value
+	 * 
 	 * @param double
 	 * @return void
 	 */
 	public void setValue(double value) {
 		this.value = value;
 	}
-	
-	/**	
-	 * The calculateInterest method
-	 * Purpose: calculates the interest of the account
+
+	/**
+	 * The calculateInterest method Purpose: calculates the interest of the account
+	 * 
 	 * @param void
 	 * @return double
 	 */
-	public double calculateInterest() {
-		return value + value * interestRate;
+	public double calculateInterest(int numMonths) {
+		return value * interestRate * numMonths;
+	}
+
+	/**
+	 * The calcValue method Purpose: calculates the total value of this account
+	 * 
+	 * @param void
+	 * @return double
+	 */
+	public double calcValue() {
+		return this.value + interestEarned;
 	}
 
 }
