@@ -3,12 +3,13 @@
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
+ * Code Created by Dalan
  */
 package bankAccountProject;
 
 public class SavingsAccount extends BankAccount {
 // Data Fields
-	private int accountNumber = 00001;
+	
 	private double interestRate = .02;
 	private double interestEarned = 0;
 
@@ -30,24 +31,32 @@ public class SavingsAccount extends BankAccount {
 	 * 
 	 * @param int
 	 * @param double
-	 * @param double
 	 * @return void
 	 */
 	public SavingsAccount(int accountNumber, double value) {
-		this.accountNumber = accountNumber;
-		this.value = value;
+		super();
+		setAccountNumber(accountNumber);
+		setValue(value);
+	}
+	
+	/**
+	 * The CheckingAcoount constructor method Purpose: Creates a CheckingAccount
+	 * object with all parameters
+	 * @param String
+	 * @param int
+	 * @param double
+	 * @param double
+	 * @param int
+	 * @return void
+	 */
+	public SavingsAccount(String accountName, int routingNumber, double value, double sum, int accountNumber, double interestRate, double interestEarned) {
+		super();
+		this.interestRate = interestRate;
+		this.interestEarned = interestEarned;
 	}
 
 // Methods
-	/**
-	 * The getAccountNumber method Purpose: gets the accountNumber
-	 * 
-	 * @param void
-	 * @return accountNumber
-	 */
-	public int getAccountNumber() {
-		return accountNumber;
-	}
+	
 
 	/**
 	 * The getInterestRate method Purpose: gets the interestRate
@@ -57,26 +66,6 @@ public class SavingsAccount extends BankAccount {
 	 */
 	public double getInterestRate() {
 		return interestRate;
-	}
-
-	/**
-	 * The getValue method Purpose: gets the value
-	 * 
-	 * @param void
-	 * @return value
-	 */
-	public double getValue() {
-		return value;
-	}
-
-	/**
-	 * The setAccountNumber method Purpose: sets the accountNumber
-	 * 
-	 * @param int
-	 * @return void
-	 */
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
 	}
 
 	/**
@@ -90,23 +79,13 @@ public class SavingsAccount extends BankAccount {
 	}
 
 	/**
-	 * The setValue method Purpose: sets the value
-	 * 
-	 * @param double
-	 * @return void
-	 */
-	public void setValue(double value) {
-		this.value = value;
-	}
-
-	/**
 	 * The calculateInterest method Purpose: calculates the interest of the account
 	 * 
 	 * @param void
 	 * @return double
 	 */
 	public double calculateInterest(int numMonths) {
-		return value * interestRate * numMonths;
+		return getValue() * interestRate * numMonths;
 	}
 
 	/**
@@ -116,7 +95,7 @@ public class SavingsAccount extends BankAccount {
 	 * @return double
 	 */
 	public double calcValue() {
-		return this.value + interestEarned;
+		return getValue() + interestEarned;
 	}
 
 }

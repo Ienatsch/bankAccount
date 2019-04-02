@@ -3,12 +3,12 @@
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
+ * Code Created by Dalan
  */
 package bankAccountProject;
 
 public class CheckingAccount extends BankAccount {
 // Data Fields
-	private int accountNumber = 00001; // The account number
 
 // Constructors
 	/**
@@ -31,59 +31,25 @@ public class CheckingAccount extends BankAccount {
 	 * @return void
 	 */
 	public CheckingAccount(int accountNumber, double value) {
-		this.accountNumber = accountNumber;
-		this.value = value;
+		super();
+		setAccountNumber(accountNumber);
+		setValue(value);
 	}
-
-// Methods
+	
 	/**
-	 * The getAccountNumber method Purpose: gets the accountNumber
-	 * 
-	 * @param void
-	 * @return accountNumber
-	 */
-	public int getAccountNumber() {
-		return accountNumber;
-	}
-
-	/**
-	 * The getValue method Purpose: gets the value
-	 * 
-	 * @param void
-	 * @return value
-	 */
-	public double getValue() {
-		return value;
-	}
-
-	/**
-	 * The setAccountNumber method Purpose: sets the accountNumber
-	 * 
+	 * The CheckingAcoount constructor method Purpose: Creates a CheckingAccount
+	 * object with all parameters
+	 * @param String
+	 * @param int
+	 * @param double
+	 * @param double
 	 * @param int
 	 * @return void
 	 */
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
+	public CheckingAccount(String accountName, int routingNumber, double value, double sum, int accountNumber) {
+		super();
 	}
 
-	/**
-	 * The setValue method Purpose: sets the value
-	 * 
-	 * @param double
-	 * @return void
-	 */
-	public void setValue(double value) {
-		this.value = value;
-	}
-
-	/**
-	 * The calcValue method Purpose: calculates the total value of this account
-	 * 
-	 * @param void
-	 * @return value
-	 */
-	public double calcValue() {
-		return this.value;
-	}
+// Methods
 
 }

@@ -3,15 +3,20 @@
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
+ * Code Created by Jake
  */
 package bankAccountProject;
+
+import java.util.*;
 
 public class BankAccount {
 // Data Fields
 	private String accountName = "My Bank Account"; // The account name
 	private int routingNumber = 123456; // The bank routing number
-	protected double value = 0; // The default value of the account
-
+	private double value = 0; // The default value of the account
+	private static double sum = 0;
+	private int accountNumber = 00000;
+	
 // Constructors
 	/**
 	 * The default BankAccount constructor method Purpose: create a default
@@ -53,6 +58,25 @@ public class BankAccount {
 	public double getValue() {
 		return value;
 	}
+	
+	/**
+	 * The getAccountNumber method Purpose: gets the accountNumber
+	 * 
+	 * @param void
+	 * @return accountNumber
+	 */
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+	
+	/**
+	 * The setAccountNumber method Purpose: sets the accountNumber
+	 * @param int
+	 * @return void
+	 */
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
 
 	/**
 	 * The setBankName method Purpose: sets the accountName
@@ -80,7 +104,7 @@ public class BankAccount {
 	 * @param double
 	 * @return void
 	 */
-	public void value(double value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 
@@ -107,13 +131,12 @@ public class BankAccount {
 	/**
 	 * The calcValue method Purpose: calculates the total value of all accounts
 	 * 
-	 * @param BankAccount
-	 * @param BankAccount
-	 * @param BankAccount
+	 * @param ArrayList
 	 * @return double sum of all values
 	 */
-	public double calcValue(BankAccount account1, BankAccount account2, BankAccount account3) {
-		return account1.getValue() + account2.getValue() + account3.getValue();
+	public static double calcValue(ArrayList<BankAccount> array) {
+		array.forEach(x -> sum += x.getValue());
+		return sum;
 	}
 
 }
