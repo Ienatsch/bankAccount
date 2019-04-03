@@ -32,12 +32,8 @@ public class BankAccountTest {
 
 		// Display a summary of the accounts so that the user can access them
 		System.out.println("-- Account Name ---- Account Number ---- Value ");
-		System.out.format("   %-18s%-20s%s%n", myChecking.getBankName(), myChecking.getAccountNumber(),
-				myChecking.getValue());
-		System.out.format("   %-18s%-20s%s%n", savings1.getBankName(), savings1.getAccountNumber(),
-				savings1.getValue());
-		System.out.format("   %-18s%-20s%s%n", savings2.getBankName(), savings2.getAccountNumber(),
-				savings2.getValue());
+                bankAccounts.forEach(x -> System.out.format(" %-23s%-17s%s%n", x.getBankName(), x.getAccountNumber(),
+				x.getValue()));
 
 		// Ask the user for the day of their deposit
 		System.out.format("%nPlease enter today's date: (MM/DD/YYYY)");
@@ -57,7 +53,7 @@ public class BankAccountTest {
 			case 1: // Deposit money in an account
 				// ask the user to enter the account number and deposit amount
 				System.out.println("Please enter the account number (123456) and deposit amount (350.00)");
-				final int depositAccountNumber = input.nextInt();
+				int depositAccountNumber = input.nextInt();
 				double deposit = input.nextDouble();
 
                                 bankAccounts.forEach(x -> {
@@ -71,7 +67,7 @@ public class BankAccountTest {
 			case 2: // Withdraw money out of an account
 				// ask the user to enter the account number and withdraw amount
 				System.out.println("Please enter the account number (123456) and withdraw amount (350.00)");
-				final int withdrawAccountNumber = input.nextInt();
+				int withdrawAccountNumber = input.nextInt();
 				double withdraw = input.nextDouble();
 
                                 bankAccounts.forEach(x -> {
@@ -85,7 +81,7 @@ public class BankAccountTest {
 
 		} while (selection < 3);
 
-		System.out.println("calcValue = " + BankAccount.calcValue(bankAccounts));
+		System.out.println("The total value of all of your accounts is: " + BankAccount.calcValue(bankAccounts));
           
 		// Create a file on disk and for each account in the list write out
 		// The account name

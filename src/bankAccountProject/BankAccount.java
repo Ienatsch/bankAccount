@@ -152,7 +152,7 @@ public class BankAccount {
      * @return double current account value
      */
     public PrintStream printValue() {
-        return System.out.format("The current balance of your account is: %f%", this.value);
+        return System.out.format("The current balance of your account is: %.2f%n", this.value);
     }
 
     /**
