@@ -22,35 +22,6 @@ public class CheckingAccount extends BankAccount {
         super();
     }
 
-    /**
-     * The CheckingAcoount constructor method Purpose: Creates a CheckingAccount
-     * object with parameters
-     *
-     * @param int
-     * @param double
-     * @return void
-     */
-    public CheckingAccount(int accountNumber, double value) {
-        super();
-        setAccountNumber(accountNumber);
-        setValue(value);
-    }
-
-    /**
-     * The CheckingAcoount constructor method Purpose: Creates a CheckingAccount
-     * object with all parameters
-     *
-     * @param String
-     * @param int
-     * @param double
-     * @param double
-     * @param int
-     * @return void
-     */
-    public CheckingAccount(String accountName, int routingNumber, double value, double sum, int accountNumber) {
-        super();
-    }
-
 // Methods
     /**
      * The toString method Purpose: calculates the total value of all accounts

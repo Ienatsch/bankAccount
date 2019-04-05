@@ -25,37 +25,6 @@ public class SavingsAccount extends BankAccount {
         super();
     }
 
-    /**
-     * The SavingsAcoount constructor method Purpose: Creates a SavingsAccount
-     * object with parameters
-     *
-     * @param int
-     * @param double
-     * @return void
-     */
-    public SavingsAccount(int accountNumber, double value) {
-        super();
-        setAccountNumber(accountNumber);
-        setValue(value);
-    }
-
-    /**
-     * The CheckingAcoount constructor method Purpose: Creates a CheckingAccount
-     * object with all parameters
-     *
-     * @param String
-     * @param int
-     * @param double
-     * @param double
-     * @param int
-     * @return void
-     */
-    public SavingsAccount(String accountName, int routingNumber, double value, double sum, int accountNumber, double interestRate, double interestEarned) {
-        super();
-        this.interestRate = interestRate;
-        this.interestEarned = interestEarned;
-    }
-
 // Methods
     /**
      * The getInterestRate method Purpose: gets the interestRate

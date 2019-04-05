@@ -22,16 +22,33 @@ public class BankAccount {
 
 // Constructors
     /**
-     * The default BankAccount constructor method Purpose: create a default
-     * BankAccount object
-     *
+     * The default BankAccount constructor method 
+     * Purpose: create a default BankAccount object
      * @param void
      * @return void
      */
     public BankAccount() {
     }
+    
+    /**
+     * The BankAccount constructor method 
+     * Purpose: create a BankAccount object with a defined data set
+     * @param String
+     * @param int
+     * @param double
+     * @param double
+     * @param int
+     * @return void
+     */
+    public BankAccount(String accountName, int routingNumber, double value, double sum, int accountNumber) {
+		this.accountName = accountName;
+		this.routingNumber = routingNumber;
+		this.value = value;
+		this.sum = sum;
+		this.accountNumber = accountNumber;
+	}
 
-// Methods
+	// Methods
     /**
      * The getBankName method Purpose: returns the bankName to the user
      *
