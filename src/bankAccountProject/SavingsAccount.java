@@ -7,11 +7,11 @@
  */
 package bankAccountProject;
 
+import java.io.*;
 public class SavingsAccount extends BankAccount {
 // Data Fields
-
     private double interestRate = .02;
-    private double interestEarned = 0;
+    private int numMonths = 0;
 
 // Constructors
     /**
@@ -37,13 +37,25 @@ public class SavingsAccount extends BankAccount {
     }
 
     /**
-     * The getInterestRate method Purpose: gets the interestRate
+     * The getNumMonths method 
+     * Purpose: gets the number of months since the last time the user had a transaction
      *
      * @param void
-     * @return interestRate
+     * @return numMonths
      */
-    public double getInterestEarned() {
-        return this.interestEarned;
+    public int getNumMonths() {
+    	return this.numMonths;
+    }
+    
+    /**
+     * The setNumMonths method 
+     * Purpose: sets the number of months since the last time the user had a transaction
+     *
+     * @param int
+     * @return void
+     */
+    public void setNumMonths(int numMonths) {
+    	this.numMonths = numMonths;
     }
 
     /**
@@ -63,9 +75,9 @@ public class SavingsAccount extends BankAccount {
      * @param void
      * @return double
      */
-    public double calculateInterest(int numMonths) {
-        this.interestEarned = getValue() * this.interestRate * numMonths;
-        return this.interestEarned;
+    public double calculateInterest() {
+    	return getValue() * this.interestRate * numMonths;
+        
     }
 
     /**
@@ -75,7 +87,7 @@ public class SavingsAccount extends BankAccount {
      * @return double
      */
     public double calcValue() {
-        return getValue() + interestEarned;
+        return getValue() + calculateInterest();
     }
 
     /**
@@ -85,7 +97,16 @@ public class SavingsAccount extends BankAccount {
      */
     @Override
     public String toString() {
-        return "This is Savings Account " + this.getAccountNumber() + " and it currently has a balance of - " + this.getValue() + " and it has earned " + this.getInterestEarned();
+        return "This is Savings Account " + this.getAccountNumber() + " and it currently has a balance of - " + this.getValue() + " and it has earned " + this.calculateInterest();
+    }
+    
+    @Override
+    public void write(PrintWriter pw) {
+    	pw.println("S"); // mark this as a savings account
+    	pw.println(getAccountNumber());
+    	pw.println(getValue());
+    	pw.println(calculateInterest());
+    	super.write(pw);
     }
 
 }

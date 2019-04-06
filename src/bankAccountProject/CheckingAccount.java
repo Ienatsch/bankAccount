@@ -7,6 +7,7 @@
  */
 package bankAccountProject;
 
+import java.io.*;
 public class CheckingAccount extends BankAccount {
 // Data Fields
 
@@ -31,6 +32,14 @@ public class CheckingAccount extends BankAccount {
     @Override
     public String toString() {
         return "This is Checking Account " + this.getAccountNumber() + " and it currently has a balance of - " + this.getValue();
+    }
+    
+    @Override
+    public void write(PrintWriter pw) {
+    	pw.println("C"); // mark this as a checking account
+    	pw.println(getAccountNumber());
+    	pw.println(getValue());
+    	super.write(pw);
     }
 
 }

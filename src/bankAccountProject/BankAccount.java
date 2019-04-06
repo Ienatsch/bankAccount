@@ -7,7 +7,7 @@
  */
 package bankAccountProject;
 
-import java.io.PrintStream;
+import java.io.*;
 import java.util.*;
 
 public class BankAccount {
@@ -50,12 +50,12 @@ public class BankAccount {
 
 	// Methods
     /**
-     * The getBankName method Purpose: returns the bankName to the user
+     * The getAccountName method Purpose: returns the bankName to the user
      *
      * @param void
      * @return String
      */
-    public String getBankName() {
+    public String getAccountName() {
         return accountName;
     }
 
@@ -106,7 +106,7 @@ public class BankAccount {
      * @param String
      * @return void
      */
-    public void setBankName(String accountName) {
+    public void setAccountName(String accountName) {
         this.accountName = accountName;
     }
 
@@ -181,5 +181,9 @@ public class BankAccount {
     public String toString() {
         return "This is the main bank account, it can hold various Checking and Savings accounts";
     }
+
+	public void write(PrintWriter pw) {
+		pw.println(accountName);
+	}
 
 }

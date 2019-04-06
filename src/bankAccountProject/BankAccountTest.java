@@ -18,21 +18,30 @@ public class BankAccountTest {
 		// Create an ArrayList of references to BankAccount objects
 		ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
 
-		// Create one CheckingAccount object and store the reference to it in the
-		// ArrayList
-		CheckingAccount myChecking = new CheckingAccount(123456, 125.00);
+		// Create one CheckingAccount object and store the reference to it in the arrayList
+		CheckingAccount myChecking = new CheckingAccount();
+		myChecking.setAccountName("My Checking");
+		myChecking.setAccountNumber(123456);
+		myChecking.setValue(125.00);
 		bankAccounts.add(myChecking);
 
-		// Create two SavingsAccount objects and store references to them in the
-		// ArrayList
-		SavingsAccount savings1 = new SavingsAccount(234567, 300.00);
-		SavingsAccount savings2 = new SavingsAccount(245678, 150.00);
+		// Create two SavingsAccount objects and set their accountNumber and value 
+		SavingsAccount savings1 = new SavingsAccount();
+		savings1.setAccountName("My First Savings");
+		savings1.setAccountNumber(234567);
+		savings1.setValue(300.00);
+		SavingsAccount savings2 = new SavingsAccount();
+		savings2.setAccountName("My Second Savings");
+		savings2.setAccountNumber(245678);
+		savings2.setValue(150.00);
+		
+		// store references to them in the ArrayList
 		bankAccounts.add(savings1);
 		bankAccounts.add(savings2);
 
 		// Display a summary of the accounts so that the user can access them
 		System.out.println("-- Account Name ---- Account Number ---- Value ");
-                bankAccounts.forEach(x -> System.out.format(" %-23s%-17s%s%n", x.getBankName(), x.getAccountNumber(),
+                bankAccounts.forEach(x -> System.out.format(" %-23s%-17s%s%n", x.getAccountName(), x.getAccountNumber(),
 				x.getValue()));
 
 		// Ask the user for the day of their deposit
@@ -82,18 +91,53 @@ public class BankAccountTest {
 		} while (selection < 3);
 
 		System.out.println("The total value of all of your accounts is: " + BankAccount.calcValue(bankAccounts));
-          
-		// Create a file on disk and for each account in the list write out
-		// The account name
-		// The account number
-		// The account balance
-		// The interest earned
-		// Close the file
-		// Open the file
-		// Output the headings on the console for the bank report
-		// Read in the data from the file on disk for each account
-		// Write the data for each account on the console
-
-	}
+      
+		// Create the text file and output all object in bankAccount array list to the file
+		try (PrintWriter pw = new PrintWriter(new File("bankAccount.txt"))) {
+			for(BankAccount a: bankAccounts) {
+				a.write(pw);
+			}
+		}
+		catch(FileNotFoundException e) {
+			System.out.println("Could not open the file, program terminating.");
+		}
+		
+		// read in the data from the file, create new objects and save in bankAccounts
+		// try with resources closes file automatically when done
+		try (Scanner inp = new Scanner(new File("bankAccount.txt"))) {
+			while(inp.hasNext()) {
+				char type = input.next().charAt(0);
+				if (type == 'C') { // object is a checking account
+					
+					// get checking data
+					int accountNumber = input.nextInt();
+					double value = input.nextDouble();
+					input.hasNextLine(); // pass over newline
+					String accountName = input.nextLine();
+					
+					// display checking data
+					System.out.format("Checking Account: %s\t %d\t %f\n", accountName, accountNumber, value);
+					}
+				else { //not a checking account, must be a savings
+					
+					// get savings data
+					int accountNumber = input.nextInt();
+					double value = input.nextDouble();
+					double interestEarned = input.nextDouble();
+					input.hasNextLine(); // pass over newline
+					String accountName = input.nextLine();
+					
+					//display savings data
+					System.out.format("Checking Account: %s\t %d\t %f\t %f\n", accountName, accountNumber, value, interestEarned);
+				}			
+			} 
+			input.close();
+			System.out.println("\nProgram complete.... goodbye.");
+		} //end of try block
+		
+		catch(FileNotFoundException e) {
+			System.out.println("Cannot open the file. Application is terminating.");
+		}
+	} // end of main
 
 }

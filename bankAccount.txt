@@ -1,0 +1,14 @@
+C
+123456
+625.0
+My Checking
+S
+234567
+300.0
+0.0
+My First Savings
+S
+245678
+150.0
+0.0
+My Second Savings
