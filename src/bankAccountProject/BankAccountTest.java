@@ -20,23 +20,12 @@ public class BankAccountTest {
         ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
 
         // Create one CheckingAccount object and store the reference to it in the arrayList
-        CheckingAccount myChecking = new CheckingAccount();
-        myChecking.setAccountName("My Checking");
-        myChecking.setAccountNumber(123456);
-        myChecking.setValue(125.00);
+        CheckingAccount myChecking = new CheckingAccount("My Checking", 123456, 125.00);
         bankAccounts.add(myChecking);
 
-        // Create two SavingsAccount objects and set their accountNumber and value 
-        SavingsAccount savings1 = new SavingsAccount();
-        savings1.setAccountName("My First Savings");
-        savings1.setAccountNumber(234567);
-        savings1.setValue(300.00);
-        SavingsAccount savings2 = new SavingsAccount();
-        savings2.setAccountName("My Second Savings");
-        savings2.setAccountNumber(245678);
-        savings2.setValue(150.00);
-
-        // store references to them in the ArrayList
+        // Create two SavingsAccount objects and store their references to them in the arrayList
+        SavingsAccount savings1 = new SavingsAccount("My First Savings", 234567, 300.00);
+        SavingsAccount savings2 = new SavingsAccount("My Second Savings", 245678, 150.00);
         bankAccounts.add(savings1);
         bankAccounts.add(savings2);
 
@@ -51,6 +40,9 @@ public class BankAccountTest {
             String[] todaysDate = input.next().split("");
             int todaysMonth = Integer.parseInt(todaysDate[0] + todaysDate[1]);
             int todaysYear = Integer.parseInt(todaysDate[6] + todaysDate[7] + todaysDate[8] + todaysDate[9]);
+            
+            //set the number of months passed since initial deposit
+            
 
             int selection = 0;
             do {
@@ -133,7 +125,7 @@ public class BankAccountTest {
                 System.out.println("Cannot find file to read from. Application is terminating.");
             }
 
-            System.out.println("Would you like to run again with exisiting accounts?");
+            System.out.println("Would you like to run again with exisiting accounts (Y/N)?");
             String answer = input.next().toUpperCase();
             if (!answer.contains("Y")) {
                 runner = false;

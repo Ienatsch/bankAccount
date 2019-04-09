@@ -40,12 +40,10 @@ public class BankAccount {
      * @param int
      * @return void
      */
-    public BankAccount(String accountName, int routingNumber, double value, double sum, int accountNumber) {
+    public BankAccount(String accountName, int accountNumber, double value) {
 		this.accountName = accountName;
-		this.routingNumber = routingNumber;
-		this.value = value;
-		this.sum = sum;
 		this.accountNumber = accountNumber;
+		this.value = value;
 	}
 
 	// Methods
@@ -169,7 +167,7 @@ public class BankAccount {
      * @return double current account value
      */
     public PrintStream printValue() {
-        return System.out.format("The current balance of your account is: %.2f%n", this.value);
+        return System.out.format("The current balance of this account is: %.2f%n", this.value);
     }
 
     /**
@@ -182,6 +180,12 @@ public class BankAccount {
         return "This is the main bank account, it can hold various Checking and Savings accounts";
     }
 
+    /**
+     * The write method 
+     * purpose: create a way to write data to a file
+     * @param PrintWriter
+     * @return void
+     */
 	public void write(PrintWriter pw) {
 		pw.println(accountName);
 	}

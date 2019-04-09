@@ -24,6 +24,18 @@ public class SavingsAccount extends BankAccount {
     public SavingsAccount() {
         super();
     }
+    
+    /**
+     * The SavingsAccount constructor method 
+     * purpose: Creates a SavingsAccount object with specified parameters
+     * @param Sting
+     * @param int
+     * @param double
+     * @return void
+     */
+    public SavingsAccount(String accountName, int accountNumber, double initialValue) {
+    	super(accountName, accountNumber, initialValue);
+    }
 
 // Methods
     /**
@@ -100,6 +112,12 @@ public class SavingsAccount extends BankAccount {
         return "This is Savings Account " + this.getAccountNumber() + " and it currently has a balance of - " + this.getValue() + " and it has earned " + this.calculateInterest();
     }
     
+    /**
+     * The write method 
+     * purpose: writes specified data fields to a file
+     * @param PrintWriter
+     * @return void
+     */
     @Override
     public void write(PrintWriter pw) {
     	pw.println("S"); // mark this as a savings account

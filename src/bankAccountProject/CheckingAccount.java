@@ -22,6 +22,18 @@ public class CheckingAccount extends BankAccount {
     public CheckingAccount() {
         super();
     }
+    
+    /**
+     * The CheckingAccount constructor method 
+     * purpose: Creates a CheckingAccount object with specified parameters
+     * @param Sting
+     * @param int
+     * @param double
+     * @return void
+     */
+    public CheckingAccount(String accountName, int accountNumber, double initialValue) {
+    	super(accountName, accountNumber, initialValue);
+    }
 
 // Methods
     /**
@@ -34,6 +46,12 @@ public class CheckingAccount extends BankAccount {
         return "This is Checking Account " + this.getAccountNumber() + " and it currently has a balance of - " + this.getValue();
     }
     
+    /**
+     * The write method 
+     * purpose: writes specified data fields to a file
+     * @param PrintWriter
+     * @return void
+     */
     @Override
     public void write(PrintWriter pw) {
     	pw.println("C"); // mark this as a checking account
