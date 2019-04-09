@@ -11,133 +11,127 @@ import java.io.*;
 
 public class BankAccountTest {
 
-	public static void main(String[] args) {
-		// Declare the scanner
-		Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
+        // Declare the scanner
+        Scanner input = new Scanner(System.in);
 
-		// Create an ArrayList of references to BankAccount objects
-		ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
+        // Create an ArrayList of references to BankAccount objects
+        ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
 
-		// Create one CheckingAccount object and store the reference to it in the arrayList
-		CheckingAccount myChecking = new CheckingAccount();
-		myChecking.setAccountName("My Checking");
-		myChecking.setAccountNumber(123456);
-		myChecking.setValue(125.00);
-		bankAccounts.add(myChecking);
+        // Create one CheckingAccount object and store the reference to it in the arrayList
+        CheckingAccount myChecking = new CheckingAccount();
+        myChecking.setAccountName("My Checking");
+        myChecking.setAccountNumber(123456);
+        myChecking.setValue(125.00);
+        bankAccounts.add(myChecking);
 
-		// Create two SavingsAccount objects and set their accountNumber and value 
-		SavingsAccount savings1 = new SavingsAccount();
-		savings1.setAccountName("My First Savings");
-		savings1.setAccountNumber(234567);
-		savings1.setValue(300.00);
-		SavingsAccount savings2 = new SavingsAccount();
-		savings2.setAccountName("My Second Savings");
-		savings2.setAccountNumber(245678);
-		savings2.setValue(150.00);
-		
-		// store references to them in the ArrayList
-		bankAccounts.add(savings1);
-		bankAccounts.add(savings2);
+        // Create two SavingsAccount objects and set their accountNumber and value 
+        SavingsAccount savings1 = new SavingsAccount();
+        savings1.setAccountName("My First Savings");
+        savings1.setAccountNumber(234567);
+        savings1.setValue(300.00);
+        SavingsAccount savings2 = new SavingsAccount();
+        savings2.setAccountName("My Second Savings");
+        savings2.setAccountNumber(245678);
+        savings2.setValue(150.00);
 
-		// Display a summary of the accounts so that the user can access them
-		System.out.println("-- Account Name ---- Account Number ---- Value ");
-                bankAccounts.forEach(x -> System.out.format(" %-23s%-17s%s%n", x.getAccountName(), x.getAccountNumber(),
-				x.getValue()));
+        // store references to them in the ArrayList
+        bankAccounts.add(savings1);
+        bankAccounts.add(savings2);
 
-		// Ask the user for the day of their deposit
-		System.out.format("%nPlease enter today's date: (MM/DD/YYYY)");
-		String[] todaysDate = input.next().split("");
-		int todaysMonth = Integer.parseInt(todaysDate[0] + todaysDate[1]);
-		int todaysYear = Integer.parseInt(todaysDate[6] + todaysDate[7] + todaysDate[8] + todaysDate[9]);
+        // Display a summary of the accounts so that the user can access them
+        System.out.println("-- Account Name ---- Account Number ---- Value ");
+        bankAccounts.forEach(x -> System.out.format(" %-23s%-17s%s%n", x.getAccountName(), x.getAccountNumber(),
+                x.getValue()));
 
-		int selection = 0;
-		do {
-			System.out.println("Press 1 to Deposit");
-			System.out.println("Press 2 to Withdraw");
-			System.out.println("Press 3 to Exit");
+        // Ask the user for the day of their deposit
+        System.out.format("%nPlease enter today's date: (MM/DD/YYYY)");
+        String[] todaysDate = input.next().split("");
+        int todaysMonth = Integer.parseInt(todaysDate[0] + todaysDate[1]);
+        int todaysYear = Integer.parseInt(todaysDate[6] + todaysDate[7] + todaysDate[8] + todaysDate[9]);
 
-			selection = input.nextInt();
+        int selection = 0;
+        do {
+            System.out.println("Press 1 to Deposit");
+            System.out.println("Press 2 to Withdraw");
+            System.out.println("Press 3 to Exit");
 
-			switch (selection) {
-			case 1: // Deposit money in an account
-				// ask the user to enter the account number and deposit amount
-				System.out.println("Please enter the account number (123456) and deposit amount (350.00)");
-				int depositAccountNumber = input.nextInt();
-				double deposit = input.nextDouble();
+            selection = input.nextInt();
 
-                                bankAccounts.forEach(x -> {
-                                    if(x.getAccountNumber() == depositAccountNumber) {
-                                        x.deposit(deposit);
-                                        x.printValue();
-                                    }
-                                });
-				break;
+            switch (selection) {
+                case 1: // Deposit money in an account
+                    // ask the user to enter the account number and deposit amount
+                    System.out.println("Please enter the account number (123456) and deposit amount (350.00)");
+                    int depositAccountNumber = input.nextInt();
+                    double deposit = input.nextDouble();
 
-			case 2: // Withdraw money out of an account
-				// ask the user to enter the account number and withdraw amount
-				System.out.println("Please enter the account number (123456) and withdraw amount (350.00)");
-				int withdrawAccountNumber = input.nextInt();
-				double withdraw = input.nextDouble();
+                    bankAccounts.forEach(x -> {
+                        if (x.getAccountNumber() == depositAccountNumber) {
+                            x.deposit(deposit);
+                            x.printValue();
+                        }
+                    });
+                    break;
 
-                                bankAccounts.forEach(x -> {
-                                    if(x.getAccountNumber() == withdrawAccountNumber) {
-                                        x.withdraw(withdraw);
-                                        x.printValue();
-                                    }
-                                });
-				break;
-			}
+                case 2: // Withdraw money out of an account
+                    // ask the user to enter the account number and withdraw amount
+                    System.out.println("Please enter the account number (123456) and withdraw amount (350.00)");
+                    int withdrawAccountNumber = input.nextInt();
+                    double withdraw = input.nextDouble();
 
-		} while (selection < 3);
+                    bankAccounts.forEach(x -> {
+                        if (x.getAccountNumber() == withdrawAccountNumber) {
+                            x.withdraw(withdraw);
+                            x.printValue();
+                        }
+                    });
+                    break;
+            }
 
-		System.out.println("The total value of all of your accounts is: " + BankAccount.calcValue(bankAccounts));
-      
-		// Create the text file and output all object in bankAccount array list to the file
-		try (PrintWriter pw = new PrintWriter(new File("bankAccount.txt"))) {
-			for(BankAccount a: bankAccounts) {
-				a.write(pw);
-			}
-		}
-		catch(FileNotFoundException e) {
-			System.out.println("Could not open the file, program terminating.");
-		}
-		
-		// read in the data from the file, create new objects and save in bankAccounts
-		// try with resources closes file automatically when done
-		try (Scanner inp = new Scanner(new File("bankAccount.txt"))) {
-			while(inp.hasNext()) {
-				char type = input.next().charAt(0);
-				if (type == 'C') { // object is a checking account
-					
-					// get checking data
-					int accountNumber = input.nextInt();
-					double value = input.nextDouble();
-					input.hasNextLine(); // pass over newline
-					String accountName = input.nextLine();
-					
-					// display checking data
-					System.out.format("Checking Account: %s\t %d\t %f\n", accountName, accountNumber, value);
-					}
-				else { //not a checking account, must be a savings
-					
-					// get savings data
-					int accountNumber = input.nextInt();
-					double value = input.nextDouble();
-					double interestEarned = input.nextDouble();
-					input.hasNextLine(); // pass over newline
-					String accountName = input.nextLine();
-					
-					//display savings data
-					System.out.format("Checking Account: %s\t %d\t %f\t %f\n", accountName, accountNumber, value, interestEarned);
-				}			
-			} 
-			input.close();
-			System.out.println("\nProgram complete.... goodbye.");
-		} //end of try block
-		
-		catch(FileNotFoundException e) {
-			System.out.println("Cannot open the file. Application is terminating.");
-		}
-	} // end of main
+        } while (selection < 3);
+
+        System.out.println("The total value of all of your accounts is: " + BankAccount.calcValue(bankAccounts));
+
+        // Create the text file and output all object in bankAccount array list to the file
+        try (PrintWriter pw = new PrintWriter(new File("bankAccount.txt"))) {
+            for (BankAccount a : bankAccounts) {
+                a.write(pw);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not open the file, program terminating.");
+        }
+
+        // read in the data from the file, create new objects and save in bankAccounts
+        // try with resources closes file automatically when done
+        try {
+            File accountFile = new File("bankAccount.txt");
+            Scanner reader = new Scanner(accountFile);
+            System.out.format("-- Account Type ---- Account Name ---- Account Number ---- Balance ---- Interest Earned%n");
+            
+            while (reader.hasNextLine()) {
+                String line = reader.nextLine();
+                if (line.contains("C")) {
+                    String accountType = "Checking";
+                    String accountNumber = reader.nextLine();
+                    String accountBalance = reader.nextLine();
+                    String interestEarned = "N/A";
+                    String accountName = reader.nextLine();
+                    System.out.format("    %-17s%-20s %-17s %-17s %-17s%n", accountType, accountName, accountNumber, accountBalance, interestEarned);
+                }
+                else {
+                    String accountType = "Savings";
+                    String accountNumber = reader.nextLine();
+                    String accountBalance = reader.nextLine();
+                    String interestEarned = reader.nextLine();
+                    String accountName = reader.nextLine();
+                    System.out.format("    %-17s%-20s %-17s %-17s %-17s%n", accountType, accountName, accountNumber, accountBalance, interestEarned);
+                }
+            }
+            input.close();
+
+        } catch (Exception ex) {
+            System.out.println("Cannot find file to read from. Application is terminating.");
+        }
+    } // end of main
 
 }
