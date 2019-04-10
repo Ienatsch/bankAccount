@@ -14,8 +14,8 @@ public class BankAccountTest {
     public static void main(String[] args) {
         // Declare the scanner
         Scanner input = new Scanner(System.in);
-        boolean runner = true;
-
+        boolean runner = true;     
+        
         // Create an ArrayList of references to BankAccount objects
         ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
 
@@ -38,11 +38,21 @@ public class BankAccountTest {
             // Ask the user for the day of their deposit
             System.out.format("%nPlease enter today's date: (MM/DD/YYYY)");
             String[] todaysDate = input.next().split("");
-            int todaysMonth = Integer.parseInt(todaysDate[0] + todaysDate[1]);
-            int todaysYear = Integer.parseInt(todaysDate[6] + todaysDate[7] + todaysDate[8] + todaysDate[9]);
-            
-            //set the number of months passed since initial deposit
-            
+            int todaysMonth = 0;
+            //set the number of months and years passed since initial deposit
+            try {
+                todaysMonth = Integer.parseInt(todaysDate[0] + todaysDate[1]);
+            }catch(NumberFormatException ex) {
+                System.out.println("Incorrect input for today's date. Program terminating.");
+                return;
+            }
+            int todaysYear = 0;
+            try {
+                todaysYear = Integer.parseInt(todaysDate[6] + todaysDate[7] + todaysDate[8] + todaysDate[9]);
+            }catch(NumberFormatException ex) {
+                System.out.println("Incorrect input for today's date. Program terminating.");
+                return;
+            }                 
 
             int selection = 0;
             do {
@@ -59,6 +69,11 @@ public class BankAccountTest {
                         int depositAccountNumber = input.nextInt();
                         double deposit = input.nextDouble();
 
+                        if (deposit < 0) {
+                            System.out.println("Deposit must not be a negative number.");
+                            return;
+                        }
+                        
                         bankAccounts.forEach(x -> {
                             if (x.getAccountNumber() == depositAccountNumber) {
                                 x.deposit(deposit);
@@ -73,6 +88,11 @@ public class BankAccountTest {
                         int withdrawAccountNumber = input.nextInt();
                         double withdraw = input.nextDouble();
 
+                        if (withdraw < 0) {
+                            System.out.println("Withdrawal amount must not be a negative number.");
+                            return;
+                        }
+                        
                         bankAccounts.forEach(x -> {
                             if (x.getAccountNumber() == withdrawAccountNumber) {
                                 x.withdraw(withdraw);

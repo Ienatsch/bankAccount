@@ -8,10 +8,15 @@
 package bankAccountProject;
 
 import java.io.*;
+
 public class SavingsAccount extends BankAccount {
 // Data Fields
+
     private double interestRate = .02;
     private int numMonths = 0;
+    private final int MONTHS_PER_YEAR = 12;
+    private final int initialYear = 2012;
+    private final int initialMonth = 1;
 
 // Constructors
     /**
@@ -24,17 +29,18 @@ public class SavingsAccount extends BankAccount {
     public SavingsAccount() {
         super();
     }
-    
+
     /**
-     * The SavingsAccount constructor method 
-     * purpose: Creates a SavingsAccount object with specified parameters
+     * The SavingsAccount constructor method purpose: Creates a SavingsAccount
+     * object with specified parameters
+     *
      * @param Sting
      * @param int
      * @param double
      * @return void
      */
     public SavingsAccount(String accountName, int accountNumber, double initialValue) {
-    	super(accountName, accountNumber, initialValue);
+        super(accountName, accountNumber, initialValue);
     }
 
 // Methods
@@ -49,25 +55,39 @@ public class SavingsAccount extends BankAccount {
     }
 
     /**
-     * The getNumMonths method 
-     * Purpose: gets the number of months since the last time the user had a transaction
+     * The getNumMonths method Purpose: gets the number of months since the last
+     * time the user had a transaction
      *
      * @param void
      * @return numMonths
      */
     public int getNumMonths() {
-    	return this.numMonths;
+        return this.numMonths;
     }
-    
+
     /**
-     * The setNumMonths method 
-     * Purpose: sets the number of months since the last time the user had a transaction
+     * The calcTimePassed method Purpose: calculate the time passed since initial deposit
      *
      * @param int
-     * @return void
+     * @param int
+     * @return numMonths
      */
-    public void setNumMonths(int numMonths) {
-    	this.numMonths = numMonths;
+    public int calcTimePassed(int month, int year) {
+        if (year > 2012 && month > 0 && month <= 12) {
+            int initialTime = 0;
+            int yearsToMonths = this.initialYear * MONTHS_PER_YEAR;
+            initialTime = yearsToMonths + this.initialMonth;
+
+            int currentTime = 0;
+            int currentYearsToMonths = year * MONTHS_PER_YEAR;
+            currentTime = currentYearsToMonths + month;
+
+            int timePassed = currentTime - initialTime;
+            this.numMonths = timePassed;
+            return this.numMonths;
+        } else {
+            return this.numMonths;
+        }
     }
 
     /**
@@ -88,8 +108,7 @@ public class SavingsAccount extends BankAccount {
      * @return double
      */
     public double calculateInterest() {
-    	return getValue() * this.interestRate * numMonths;
-        
+        return getValue() * this.interestRate * numMonths;
     }
 
     /**
@@ -111,20 +130,20 @@ public class SavingsAccount extends BankAccount {
     public String toString() {
         return "This is Savings Account " + this.getAccountNumber() + " and it currently has a balance of - " + this.getValue() + " and it has earned " + this.calculateInterest();
     }
-    
+
     /**
-     * The write method 
-     * purpose: writes specified data fields to a file
+     * The write method purpose: writes specified data fields to a file
+     *
      * @param PrintWriter
      * @return void
      */
     @Override
     public void write(PrintWriter pw) {
-    	pw.println("S"); // mark this as a savings account
-    	pw.println(getAccountNumber());
-    	pw.println(getValue());
-    	pw.println(calculateInterest());
-    	super.write(pw);
+        pw.println("S"); // mark this as a savings account
+        pw.println(getAccountNumber());
+        pw.println(calcValue());
+        pw.println(calculateInterest());
+        super.write(pw);
     }
 
 }

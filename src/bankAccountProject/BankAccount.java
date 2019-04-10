@@ -19,7 +19,7 @@ public class BankAccount {
     private static double sum = 0;
     private int accountNumber = 00000;
     private Scanner input = new Scanner(System.in);
-
+    
 // Constructors
     /**
      * The default BankAccount constructor method 
