@@ -73,7 +73,7 @@ public class SavingsAccount extends BankAccount {
      * @return numMonths
      */
     public int calcTimePassed(int month, int year) {
-        if (year > 2012 && month > 0 && month <= 12) {
+        if (year > initialYear && month > 0 && month <= MONTHS_PER_YEAR) {
             int initialTime = 0;
             int yearsToMonths = this.initialYear * MONTHS_PER_YEAR;
             initialTime = yearsToMonths + this.initialMonth;

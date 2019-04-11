@@ -14,7 +14,8 @@ public class BankAccountTest {
     public static void main(String[] args) {
         // Declare the scanner
         Scanner input = new Scanner(System.in);
-        boolean runner = true;     
+        boolean runner = true;
+        final int AMOUNT_OF_OPTIONS = 3;
         
         // Create an ArrayList of references to BankAccount objects
         ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
@@ -102,7 +103,7 @@ public class BankAccountTest {
                         break;
                 }
 
-            } while (selection < 3);
+            } while (selection < AMOUNT_OF_OPTIONS);
 
             System.out.println("The total value of all of your accounts is: " + BankAccount.calcValue(bankAccounts));
 
