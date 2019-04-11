@@ -19,20 +19,22 @@ public class BankAccount {
     private static double sum = 0;
     private int accountNumber = 00000;
     private Scanner input = new Scanner(System.in);
-    
+
 // Constructors
     /**
-     * The default BankAccount constructor method 
-     * Purpose: create a default BankAccount object
+     * The default BankAccount constructor method Purpose: create a default
+     * BankAccount object
+     *
      * @param void
      * @return void
      */
     public BankAccount() {
     }
-    
+
     /**
-     * The BankAccount constructor method 
-     * Purpose: create a BankAccount object with a defined data set
+     * The BankAccount constructor method Purpose: create a BankAccount object
+     * with a defined data set
+     *
      * @param String
      * @param int
      * @param double
@@ -41,12 +43,12 @@ public class BankAccount {
      * @return void
      */
     public BankAccount(String accountName, int accountNumber, double value) {
-		this.accountName = accountName;
-		this.accountNumber = accountNumber;
-		this.value = value;
-	}
+        this.accountName = accountName;
+        this.accountNumber = accountNumber;
+        this.value = value;
+    }
 
-	// Methods
+    // Methods
     /**
      * The getAccountName method Purpose: returns the bankName to the user
      *
@@ -181,13 +183,13 @@ public class BankAccount {
     }
 
     /**
-     * The write method 
-     * purpose: create a way to write data to a file
+     * The write method purpose: create a way to write data to a file
+     *
      * @param PrintWriter
      * @return void
      */
-	public void write(PrintWriter pw) {
-		pw.println(accountName);
-	}
+    public void write(PrintWriter pw) {
+        pw.println(accountName);
+    }
 
 }

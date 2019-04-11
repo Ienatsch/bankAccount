@@ -146,12 +146,15 @@ public class BankAccountTest {
                 System.out.println("Cannot find file to read from. Application is terminating.");
             }
 
+            // Prompts user to re-run program with their existing accounts
             System.out.println("Would you like to run again with exisiting accounts (Y/N)?");
             String answer = input.next().toUpperCase();
             if (answer.charAt(0) != 'Y') {
                 runner = false;
             }
         }
+        
+        // Closes Scanner
         input.close();
     } // end of main
 

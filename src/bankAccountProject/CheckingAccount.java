@@ -8,6 +8,7 @@
 package bankAccountProject;
 
 import java.io.*;
+
 public class CheckingAccount extends BankAccount {
 // Data Fields
 
@@ -22,17 +23,18 @@ public class CheckingAccount extends BankAccount {
     public CheckingAccount() {
         super();
     }
-    
+
     /**
-     * The CheckingAccount constructor method 
-     * purpose: Creates a CheckingAccount object with specified parameters
+     * The CheckingAccount constructor method purpose: Creates a CheckingAccount
+     * object with specified parameters
+     *
      * @param Sting
      * @param int
      * @param double
      * @return void
      */
     public CheckingAccount(String accountName, int accountNumber, double initialValue) {
-    	super(accountName, accountNumber, initialValue);
+        super(accountName, accountNumber, initialValue);
     }
 
 // Methods
@@ -45,19 +47,19 @@ public class CheckingAccount extends BankAccount {
     public String toString() {
         return "This is Checking Account " + this.getAccountNumber() + " and it currently has a balance of - " + this.getValue();
     }
-    
+
     /**
-     * The write method 
-     * purpose: writes specified data fields to a file
+     * The write method purpose: writes specified data fields to a file
+     *
      * @param PrintWriter
      * @return void
      */
     @Override
     public void write(PrintWriter pw) {
-    	pw.println("C"); // mark this as a checking account
-    	pw.println(getAccountNumber());
-    	pw.println(getValue());
-    	super.write(pw);
+        pw.println("C"); // mark this as a checking account
+        pw.println(getAccountNumber());
+        pw.println(getValue());
+        super.write(pw);
     }
 
 }

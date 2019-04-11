@@ -66,7 +66,8 @@ public class SavingsAccount extends BankAccount {
     }
 
     /**
-     * The calcTimePassed method Purpose: calculate the time passed since initial deposit
+     * The calcTimePassed method Purpose: calculate the time passed since
+     * initial deposit
      *
      * @param int
      * @param int
