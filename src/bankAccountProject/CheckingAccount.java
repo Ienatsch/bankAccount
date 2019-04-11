@@ -3,7 +3,7 @@
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
- * Code Created by Dalan
+ * Code Created by Jake
  */
 package bankAccountProject;
 

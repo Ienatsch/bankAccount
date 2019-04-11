@@ -3,7 +3,7 @@
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
- * Code Created by Jake
+ * Code Created by both Jake and Dalan
  */
 package bankAccountProject;
 
@@ -19,6 +19,7 @@ public class BankAccount {
     private static double sum = 0;
     private int accountNumber = 00000;
     private Scanner input = new Scanner(System.in);
+    private int numMonths = 0;
 
 // Constructors
     /**
@@ -79,7 +80,29 @@ public class BankAccount {
     public double getValue() {
         return value;
     }
-
+    
+    /**
+     * The getNumMonths method Purpose: gets the number of months since the last
+     * time the user had a transaction
+     *
+     * @param void
+     * @return numMonths
+     */
+    public int getNumMonths() {
+        return this.numMonths;
+    }
+    
+     /**
+     * The setNumMonths method Purpose: sets the number of months since the last
+     * time the user had a transaction
+     *
+     * @param int
+     * @return void
+     */
+    public void setNumMonths(int time) {
+        this.numMonths = time;
+    }
+    
     /**
      * The getAccountNumber method Purpose: gets the accountNumber
      *
@@ -138,7 +161,6 @@ public class BankAccount {
      */
     public void deposit(double deposit) {
         this.value += deposit;
-
     }
 
     /**
@@ -151,7 +173,7 @@ public class BankAccount {
         System.out.println("Please enter the account number you would like to withdraw from: ");
         this.value -= withdraw;
     }
-
+    
     /**
      * The calcValue method Purpose: calculates the total value of all accounts
      *

@@ -12,11 +12,11 @@ import java.io.*;
 public class SavingsAccount extends BankAccount {
 // Data Fields
 
-    private double interestRate = .02;
-    private int numMonths = 0;
     private final int MONTHS_PER_YEAR = 12;
-    private final int initialYear = 2012;
-    private final int initialMonth = 1;
+    private final int INITIAL_YEAR = 2012;
+    private final int INITIAL_MONTH = 1;
+    private double interestRate = .02;
+    private double changedAmount = 0;
 
 // Constructors
     /**
@@ -55,17 +55,6 @@ public class SavingsAccount extends BankAccount {
     }
 
     /**
-     * The getNumMonths method Purpose: gets the number of months since the last
-     * time the user had a transaction
-     *
-     * @param void
-     * @return numMonths
-     */
-    public int getNumMonths() {
-        return this.numMonths;
-    }
-
-    /**
      * The calcTimePassed method Purpose: calculate the time passed since
      * initial deposit
      *
@@ -73,21 +62,20 @@ public class SavingsAccount extends BankAccount {
      * @param int
      * @return numMonths
      */
-    public int calcTimePassed(int month, int year) {
-        if (year > initialYear && month > 0 && month <= MONTHS_PER_YEAR) {
+    public void calcTimePassed(int month, int year) {
+        if (year > INITIAL_YEAR && month > 0 && month <= MONTHS_PER_YEAR) {
             int initialTime = 0;
-            int yearsToMonths = this.initialYear * MONTHS_PER_YEAR;
-            initialTime = yearsToMonths + this.initialMonth;
+            int yearsToMonths = this.INITIAL_YEAR * MONTHS_PER_YEAR;
+            initialTime = yearsToMonths + this.INITIAL_MONTH;
 
             int currentTime = 0;
             int currentYearsToMonths = year * MONTHS_PER_YEAR;
             currentTime = currentYearsToMonths + month;
 
             int timePassed = currentTime - initialTime;
-            this.numMonths = timePassed;
-            return this.numMonths;
+            this.setNumMonths(timePassed);
         } else {
-            return this.numMonths;
+            this.setNumMonths(0);
         }
     }
 
@@ -109,7 +97,7 @@ public class SavingsAccount extends BankAccount {
      * @return double
      */
     public double calculateInterest() {
-        return getValue() * this.interestRate * numMonths;
+        return getValue() * this.interestRate * this.getNumMonths();
     }
 
     /**

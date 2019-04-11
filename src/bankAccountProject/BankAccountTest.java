@@ -3,6 +3,7 @@
  * Assignment: Final Project
  * Date: 03/15/19 - 4/10/19
  * CIT260
+ * Code created by both Jake and Dalan
  */
 package bankAccountProject;
 
@@ -25,12 +26,13 @@ public class BankAccountTest {
         bankAccounts.add(myChecking);
 
         // Create two SavingsAccount objects and store their references to them in the arrayList
-        SavingsAccount savings1 = new SavingsAccount("My First Savings", 234567, 300.00);
-        SavingsAccount savings2 = new SavingsAccount("My Second Savings", 245678, 150.00);
+        SavingsAccount savings1 = new SavingsAccount("My First Savings", 234567, 300.72);
+        SavingsAccount savings2 = new SavingsAccount("My Second Savings", 245678, 150.11);
         bankAccounts.add(savings1);
         bankAccounts.add(savings2);
 
         // Display a summary of the accounts so that the user can access them
+        System.out.format("Welcome!%nIt appears you opened 1 savings and 2 checking accounts with us in January 2012.%n%n");
         System.out.println("-- Account Name ---- Account Number ---- Value ");
         bankAccounts.forEach(x -> System.out.format(" %-23s%-17s%s%n", x.getAccountName(), x.getAccountNumber(),
                 x.getValue()));
@@ -54,7 +56,11 @@ public class BankAccountTest {
                 System.out.println("Incorrect input for today's date. Program terminating.");
                 return;
             }                 
-
+            
+            savings1.calcTimePassed(todaysMonth, todaysYear);
+            savings2.calcTimePassed(todaysMonth, todaysYear);
+            
+            System.out.format("%nHow may we assist you?%n");
             int selection = 0;
             do {
                 System.out.println("Press 1 to Deposit");
@@ -131,27 +137,20 @@ public class BankAccountTest {
                         String accountBalance = reader.nextLine();
                         String interestEarned = "N/A";
                         String accountName = reader.nextLine();
-                        System.out.format("    %-17s%-20s %-17s %-17s %-17s%n", accountType, accountName, accountNumber, accountBalance, interestEarned);
+                        System.out.format("    %-17s%-20s %-17s %-17.2f %-17s%n", accountType, accountName, accountNumber, Double.parseDouble(accountBalance), interestEarned);
                     } else {
                         String accountType = "Savings";
                         String accountNumber = reader.nextLine();
                         String accountBalance = reader.nextLine();
                         String interestEarned = reader.nextLine();
                         String accountName = reader.nextLine();
-                        System.out.format("    %-17s%-20s %-17s %-17s %-17s%n", accountType, accountName, accountNumber, accountBalance, interestEarned);
+                        System.out.format("    %-17s%-20s %-17s %-17.2f %-17.2f%n", accountType, accountName, accountNumber, Double.parseDouble(accountBalance), Double.parseDouble(interestEarned));
                     }
                 }  
 
             } catch (Exception ex) {
                 System.out.println("Cannot find file to read from. Application is terminating.");
-            }
-
-            // Prompts user to re-run program with their existing accounts
-            System.out.println("Would you like to run again with exisiting accounts (Y/N)?");
-            String answer = input.next().toUpperCase();
-            if (answer.charAt(0) != 'Y') {
-                runner = false;
-            }
+            }         
         }
         
         // Closes Scanner
