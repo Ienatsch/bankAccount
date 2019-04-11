@@ -12,7 +12,7 @@ import java.io.*;
 public class BankAccountTest {
 
     public static void main(String[] args) {
-        // Declare the scanner
+        // Declare the scanner, variables and constants
         Scanner input = new Scanner(System.in);
         boolean runner = true;
         final int AMOUNT_OF_OPTIONS = 3;
@@ -148,7 +148,7 @@ public class BankAccountTest {
 
             System.out.println("Would you like to run again with exisiting accounts (Y/N)?");
             String answer = input.next().toUpperCase();
-            if (!answer.contains("Y")) {
+            if (answer.charAt(0) != 'Y') {
                 runner = false;
             }
         }
