@@ -16,7 +16,7 @@ public class SavingsAccount extends BankAccount {
     private final int INITIAL_YEAR = 2012;
     private final int INITIAL_MONTH = 1;
     private double interestRate = .02;
-    private double changedAmount = 0;
+    private double originalAmount = 0;
 
 // Constructors
     /**
@@ -52,6 +52,16 @@ public class SavingsAccount extends BankAccount {
      */
     public double getInterestRate() {
         return this.interestRate;
+    }
+    
+    /**
+     * The setOriginalAmount method Purpose: gets the original amount deposited when accounts where opened
+     *
+     * @param double
+     * @return void
+     */
+    public void setOriginalAmount(double originalAmount) {
+    	this.originalAmount = originalAmount;
     }
 
     /**
@@ -97,7 +107,7 @@ public class SavingsAccount extends BankAccount {
      * @return double
      */
     public double calculateInterest() {
-        return getValue() * this.interestRate * this.getNumMonths();
+        return this.originalAmount * this.interestRate * this.getNumMonths();
     }
 
     /**

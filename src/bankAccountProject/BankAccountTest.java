@@ -15,7 +15,6 @@ public class BankAccountTest {
     public static void main(String[] args) {
         // Declare the scanner, variables and constants
         Scanner input = new Scanner(System.in);
-        boolean runner = true;
         final int AMOUNT_OF_OPTIONS = 3;
         
         // Create an ArrayList of references to BankAccount objects
@@ -37,7 +36,7 @@ public class BankAccountTest {
         bankAccounts.forEach(x -> System.out.format(" %-23s%-17s%s%n", x.getAccountName(), x.getAccountNumber(),
                 x.getValue()));
 
-        while (runner) {
+
             // Ask the user for the day of their deposit
             System.out.format("%nPlease enter today's date: (MM/DD/YYYY)");
             String[] todaysDate = input.next().split("");
@@ -47,19 +46,23 @@ public class BankAccountTest {
                 todaysMonth = Integer.parseInt(todaysDate[0] + todaysDate[1]);
             }catch(NumberFormatException ex) {
                 System.out.println("Incorrect input for today's date. Program terminating.");
-                return;
             }
             int todaysYear = 0;
             try {
                 todaysYear = Integer.parseInt(todaysDate[6] + todaysDate[7] + todaysDate[8] + todaysDate[9]);
             }catch(NumberFormatException ex) {
                 System.out.println("Incorrect input for today's date. Program terminating.");
-                return;
             }                 
             
+            // Calculate the time passed for each savings account
             savings1.calcTimePassed(todaysMonth, todaysYear);
             savings2.calcTimePassed(todaysMonth, todaysYear);
             
+            // Set the original amount for both savings accounts to properly calculate interest
+            savings1.setOriginalAmount(savings1.getValue());
+            savings2.setOriginalAmount(savings2.getValue());
+            
+            // Display prompt to user
             System.out.format("%nHow may we assist you?%n");
             int selection = 0;
             do {
@@ -108,8 +111,10 @@ public class BankAccountTest {
                         });
                         break;
                 }
+                
 
             } while (selection < AMOUNT_OF_OPTIONS);
+
 
             System.out.println("The total value of all of your accounts is: " + BankAccount.calcValue(bankAccounts));
 
@@ -151,7 +156,6 @@ public class BankAccountTest {
             } catch (Exception ex) {
                 System.out.println("Cannot find file to read from. Application is terminating.");
             }         
-        }
         
         // Closes Scanner
         input.close();
